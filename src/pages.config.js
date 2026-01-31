@@ -48,13 +48,22 @@
  * The mainPage value must match a key in the PAGES object exactly.
  */
 import Home from './pages/Home';
-
+import Data from './pages/Data';
+import Observe from './pages/Observe';
+import Help from './pages/Help';
+import Settings from './pages/Settings';
+import AppLayout from './layouts/AppLayout';
 
 export const PAGES = {
-    "Home": Home,
-}
+  Home,
+  data: Data,
+  observe: Observe,
+  help: Help,
+  settings: Settings,
+};
 
 export const pagesConfig = {
-    mainPage: "Home",
-    Pages: PAGES,
+  mainPage: 'Home',
+  Pages: PAGES,
+  Layout: AppLayout,
 };

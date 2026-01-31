@@ -1,0 +1,77 @@
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Home as HomeIcon, BarChart3, Camera, HelpCircle, Settings } from 'lucide-react';
+
+const navItems = [
+  { id: 'home', path: '/', icon: HomeIcon, label: 'Home' },
+  { id: 'data', path: '/data', icon: BarChart3, label: 'Data', badge: 1 },
+  { id: 'observe', path: '/observe', icon: Camera, label: 'Observe', isMain: true },
+  { id: 'help', path: '/help', icon: HelpCircle, label: 'Help' },
+  { id: 'settings', path: '/settings', icon: Settings, label: 'Settings' },
+];
+
+export default function AppLayout({ children, currentPageName }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const isActive = (path) => {
+    if (path === '/') return pathname === '/' || pathname === '/Home';
+    return pathname === path || pathname.startsWith(path + '/');
+  };
+
+  return (
+    <div className="min-h-screen bg-sky-50 flex flex-col">
+      {/* Header */}
+      <header className="bg-[#2563eb] text-white px-4 py-3 flex items-center justify-between shadow-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4"/>
+              <line x1="12" y1="2" x2="12" y2="22"/>
+            </svg>
+          </div>
+          <span className="text-sm font-medium tracking-wide">THE <span className="font-bold">GLOBE</span> PROGRAM</span>
+        </div>
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+          <span className="text-[#2563eb] text-xs font-bold">NASA</span>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 px-4 py-6 overflow-auto">
+        {children}
+      </main>
+
+      {/* Bottom Navigation */}
+      <nav className="bg-[#2563eb] px-2 py-2 safe-area-bottom shadow-[0_-2px_10px_rgba(0,0,0,0.08)]">
+        <div className="flex justify-around items-center">
+          {navItems.map((item) => {
+            const active = isActive(item.path);
+            return (
+              <button
+                key={item.id}
+                onClick={() => navigate(item.path)}
+                className={`relative flex flex-col items-center justify-center p-2 rounded-xl transition-all ${
+                  item.isMain
+                    ? 'bg-sky-300 -mt-6 w-16 h-16 rounded-2xl shadow-lg'
+                    : active
+                      ? 'text-sky-200'
+                      : 'text-white/80 hover:text-white'
+                }`}
+              >
+                <item.icon className={item.isMain ? 'w-8 h-8 text-white' : 'w-6 h-6'} />
+                {item.badge && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+    </div>
+  );
+}
