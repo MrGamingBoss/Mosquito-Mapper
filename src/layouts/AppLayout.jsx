@@ -24,19 +24,19 @@ export default function AppLayout({ children, currentPageName }) {
     <div className="min-h-screen bg-sky-50 flex flex-col">
       {/* Header */}
       <header className="bg-[#2563eb] text-white px-4 py-3 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <ellipse cx="12" cy="12" rx="10" ry="4"/>
-              <line x1="12" y1="2" x2="12" y2="22"/>
-            </svg>
-          </div>
-          <span className="text-sm font-medium tracking-wide">THE <span className="font-bold">GLOBE</span> PROGRAM</span>
+        <div className="flex items-center gap-2 min-w-0">
+          <img
+            src="/images/globe-observer-logo.png"
+            alt="GLOBE Observer"
+            className="h-8 w-auto object-contain"
+          />
+          <span className="text-sm font-medium tracking-wide shrink-0">THE <span className="font-bold">GLOBE</span> PROGRAM</span>
         </div>
-        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
-          <span className="text-[#2563eb] text-xs font-bold">NASA</span>
-        </div>
+        <img
+          src="/images/nasa-logo.png"
+          alt="NASA"
+          className="h-10 w-auto object-contain shrink-0"
+        />
       </header>
 
       {/* Main Content */}

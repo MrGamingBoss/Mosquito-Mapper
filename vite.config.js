@@ -4,7 +4,12 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  logLevel: 'error', // Suppress warnings, only show errors
+  logLevel: 'info', // Show dev server URL and errors
+  server: {
+    port: 5173,
+    strictPort: true, // fail if 5173 is in use (so you know to close other Vite/Node processes)
+    host: true,       // listen on all addresses (localhost + network)
+  },
   plugins: [
     base44({
       // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
