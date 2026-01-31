@@ -14,32 +14,17 @@ const WEBSITE_LINKS = [
   { label: 'Visit the Observer Website', href: 'https://observer.globe.gov' },
 ];
 
-const protocols = [
-  {
-    id: 'data-entry',
-    name: 'Data Entry',
-    image: '/images/forest-canopy.png'
-  },
-  {
-    id: 'clouds',
-    name: 'Clouds',
-    image: '/images/sky-clouds.png'
-  },
-  {
-    id: 'mosquito',
-    name: 'Mosquito Habitat-Mapper',
-    image: '/images/mosquito-leaf.png'
-  },
-  {
-    id: 'land-cover',
-    name: 'Land Cover',
-    image: '/images/forest-canopy.png'
-  },
-  {
-    id: 'trees',
-    name: 'Trees',
-    image: '/images/forest-canopy.png'
-  }
+const dataEntryProtocol = {
+  id: 'data-entry',
+  name: 'Data Entry',
+  image: '/images/data-entry.png',
+};
+
+const gridProtocols = [
+  { id: 'clouds', name: 'Clouds', image: '/images/sky-clouds.png' },
+  { id: 'mosquito', name: 'Mosquito Habitat-Mapper', image: '/images/mosquito-leaf.png' },
+  { id: 'trees', name: 'Trees', image: '/images/forest-canopy.png' },
+  { id: 'land-cover', name: 'Land Cover', image: '/images/land-cover.png' },
 ];
 
 export default function Home() {
@@ -56,29 +41,43 @@ export default function Home() {
               className="h-36 w-auto max-w-[280px] object-contain sm:h-40 sm:max-w-[320px]"
             />
           </div>
-          <p className="text-slate-600 text-lg mt-2">Choose your protocol:</p>
+          <p className="text-white/90 text-lg mt-2">Choose your protocol:</p>
         </div>
 
-        {/* Protocol Grid */}
+        {/* Data Entry - full-width tile on top (same height as one grid tile) */}
+        <button
+          type="button"
+          onClick={() => navigate(`/protocol/${dataEntryProtocol.id}`)}
+          className="relative overflow-hidden rounded-xl h-28 w-full transition-all duration-300 transform shadow-md hover:shadow-lg hover:scale-[1.01] mb-3"
+        >
+          <img
+            src={dataEntryProtocol.image}
+            alt={dataEntryProtocol.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+          <div className="absolute inset-0 p-3 flex flex-col justify-end">
+            <span className="text-white font-bold text-sm leading-tight drop-shadow-md text-left">
+              {dataEntryProtocol.name}
+            </span>
+          </div>
+        </button>
+
+        {/* Protocol Grid - 2x2 (Clouds, Mosquito, Land Cover, Trees) */}
         <div className="grid grid-cols-2 gap-3">
-          {protocols.map((protocol) => (
+          {gridProtocols.map((protocol) => (
             <button
               key={protocol.id}
               type="button"
               onClick={() => navigate(`/protocol/${protocol.id}`)}
               className="relative overflow-hidden rounded-xl h-28 transition-all duration-300 transform shadow-md hover:shadow-lg hover:scale-[1.01]"
             >
-              {/* Background Image */}
-              <img 
-                src={protocol.image} 
+              <img
+                src={protocol.image}
                 alt={protocol.name}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              
-              {/* Content overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
-              
-              {/* Text */}
               <div className="absolute inset-0 p-3 flex flex-col justify-end">
                 <span className="text-white font-bold text-sm leading-tight drop-shadow-md text-left">
                   {protocol.name}
@@ -89,7 +88,7 @@ export default function Home() {
         </div>
 
       {/* Footer: Social, Websites, Sponsors */}
-      <footer className="mt-8 rounded-2xl overflow-hidden bg-[#2563eb] text-white shadow-lg border border-sky-200">
+      <footer className="mt-8 rounded-2xl overflow-hidden bg-[#1d4ed8] text-white shadow-lg border border-white/20">
         {/* Social media row */}
         <div className="flex justify-center gap-3 p-4">
           {SOCIAL_LINKS.map(({ name, href, icon }) => (

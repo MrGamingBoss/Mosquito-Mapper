@@ -21,7 +21,7 @@ export default function AppLayout({ children, currentPageName }) {
   };
 
   return (
-    <div className="min-h-screen bg-sky-50 flex flex-col">
+    <div className="min-h-screen bg-[#2563eb] flex flex-col">
       {/* Header */}
       <header className="bg-[#2563eb] text-white px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2 min-w-0">
@@ -30,7 +30,7 @@ export default function AppLayout({ children, currentPageName }) {
             alt="GLOBE Observer"
             className="h-8 w-auto object-contain"
           />
-          <span className="text-sm font-medium tracking-wide shrink-0">THE <span className="font-bold">GLOBE</span> PROGRAM</span>
+          <span className="text-sm font-medium tracking-wide shrink-0">GLOBE Observer</span>
         </div>
         <img
           src="/images/nasa-logo.png"
@@ -44,8 +44,8 @@ export default function AppLayout({ children, currentPageName }) {
         {children}
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="bg-[#2563eb] px-2 py-2 safe-area-bottom shadow-[0_-2px_10px_rgba(0,0,0,0.08)]">
+      {/* Bottom Navigation - white only */}
+      <nav className="bg-white px-2 py-2 safe-area-bottom shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
         <div className="flex justify-around items-center">
           {navItems.map((item) => {
             const active = isActive(item.path);
@@ -55,10 +55,10 @@ export default function AppLayout({ children, currentPageName }) {
                 onClick={() => navigate(item.path)}
                 className={`relative flex flex-col items-center justify-center p-2 rounded-xl transition-all ${
                   item.isMain
-                    ? 'bg-sky-300 -mt-6 w-16 h-16 rounded-2xl shadow-lg'
+                    ? 'bg-[#2563eb] -mt-6 w-16 h-16 rounded-2xl shadow-lg text-white'
                     : active
-                      ? 'text-sky-200'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-[#2563eb]'
+                      : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
                 <item.icon className={item.isMain ? 'w-8 h-8 text-white' : 'w-6 h-6'} />
