@@ -22,7 +22,7 @@ export default function Observe() {
         <p className="text-white/90 text-sm mb-4">
           Choose a protocol on Home, then tap Start Observation to begin recording.
         </p>
-        <button className="w-full bg-white text-[#2563eb] py-3 rounded-xl font-semibold hover:bg-white/90 transition-colors">
+        <button className="w-full bg-[#123259] text-white py-3 rounded-xl font-semibold hover:bg-[#0f2a4a] transition-colors">
           Start new observation
         </button>
       </div>

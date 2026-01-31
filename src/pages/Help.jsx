@@ -10,7 +10,7 @@ const HELP_SECTIONS = [
   {
     id: 'clouds',
     title: 'Clouds Help',
-    colorClass: 'bg-sky-400 hover:bg-sky-500 text-white border-sky-500',
+    colorClass: 'bg-[#123259] hover:bg-[#0f2a4a] text-white border-[#123259]',
     content: (
       <p className="text-white/90 text-sm leading-relaxed">
         GLOBE Observer Clouds is an easy to use tool for recording clouds and sky conditions. You can compare your observation to NASA satellite data when within 15 minutes of an overpass. Set notifications for satellite flyovers and solar noon in Settings.

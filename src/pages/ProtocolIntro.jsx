@@ -12,22 +12,22 @@ const PROTOCOL_CONTENT = {
         <p className="text-white/90 mb-2">Welcome,</p>
         <p className="text-white/90 mb-2">You are currently in practice mode</p>
         <p className="text-white/90 mb-6">
-          Want to switch? <button type="button" className="text-sky-200 underline font-medium hover:text-white">Click here to sign in.</button>
+          Want to switch? <button type="button" className="text-white/80 underline font-medium hover:text-white">Click here to sign in.</button>
         </p>
         <div className="flex flex-col gap-3">
           <button type="button" className="w-full py-3 rounded-xl font-semibold bg-emerald-500 text-white hover:bg-emerald-600 transition-colors">
             New Observation(s)
           </button>
-          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#2563eb] text-white hover:bg-[#1d4ed8] transition-colors">
+          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#123259] text-white hover:bg-[#0f2a4a] transition-colors">
             Review/Send Observations
           </button>
-          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#2563eb] text-white hover:bg-[#1d4ed8] transition-colors">
+          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#123259] text-white hover:bg-[#0f2a4a] transition-colors">
             Edit/Delete Measurements
           </button>
-          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#2563eb] text-white hover:bg-[#1d4ed8] transition-colors">
+          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#123259] text-white hover:bg-[#0f2a4a] transition-colors">
             Create/Edit My Sites
           </button>
-          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#2563eb] text-white hover:bg-[#1d4ed8] transition-colors">
+          <button type="button" className="w-full py-3 rounded-xl font-semibold bg-[#123259] text-white hover:bg-[#0f2a4a] transition-colors">
             My Observations
           </button>
         </div>
@@ -44,7 +44,7 @@ const PROTOCOL_CONTENT = {
           GLOBE Observer &apos;Clouds&apos; is an easy to use tool for recording clouds and sky conditions as you go about your day.
         </p>
         <p className="text-white/90 mb-4">
-          Users can visualize the observations you submit to GLOBE, as well as those submitted by other app users from around the world, by clicking <button type="button" className="text-sky-200 font-semibold hover:text-white">HERE</button>.
+          Users can visualize the observations you submit to GLOBE, as well as those submitted by other app users from around the world, by clicking <button type="button" className="text-white/80 font-semibold hover:text-white">HERE</button>.
         </p>
         <p className="text-white/90 mb-4">
           You can also compare your observation to one taken by a NASA satellite if your observation is within 15 minutes of a satellite overpass. Enabling the app&apos;s notifications feature informs you of satellite flyovers so you can plan your observation time.
@@ -52,7 +52,7 @@ const PROTOCOL_CONTENT = {
         <p className="text-white/90 mb-6">
           In addition, observing at solar noon allows you to more easily compare your measurements with other GLOBE users. You can also set a notification for solar noon at your location. Notifications are enabled by selecting the settings icon <Settings className="inline w-4 h-4 text-white/80" /> in the top right corner of the Home screen.
         </p>
-        <button type="button" className="flex items-center justify-between w-full py-3 text-sky-200 font-semibold border-t border-white/20 mt-2">
+        <button type="button" className="flex items-center justify-between w-full py-3 text-white/80 font-semibold border-t border-white/20 mt-2">
           Next
           <span className="text-lg">→</span>
         </button>
@@ -74,7 +74,7 @@ const PROTOCOL_CONTENT = {
         <p className="text-white/90 mb-6">
           The data collected by this app are shared with public health, government and scientific institutions. By using this app, you are contributing to our understanding of the presence, range and spread of mosquitoes that are vectors for disease. You are also reducing the risk of mosquito vector borne disease in your community.
         </p>
-        <button type="button" className="flex items-center justify-between w-full py-3 text-sky-200 font-semibold border-t border-white/20 mt-2">
+        <button type="button" className="flex items-center justify-between w-full py-3 text-white/80 font-semibold border-t border-white/20 mt-2">
           Next
           <span className="text-lg">→</span>
         </button>
@@ -91,9 +91,9 @@ const PROTOCOL_CONTENT = {
           The GLOBE Observer Land Cover tool is designed to help volunteer observers record what is on the land around them, from trees to buildings to bare ground. Land cover maps are helpful for assessing risks from disasters like floods or fires, for defining wildlife habitat, for understanding change over time, and for addressing many other scientific questions.
         </p>
         <p className="text-white/90 mb-6">
-          The data collected by this app are shared with public, government and scientific institutions. By using this app, you are contributing to our understanding of both land cover and land use. You will also provide information that will create better satellite maps. <a href="https://observer.globe.gov/about/land-cover" target="_blank" rel="noopener noreferrer" className="text-sky-200 underline font-medium hover:text-white">Read more about land cover science.</a>
+          The data collected by this app are shared with public, government and scientific institutions. By using this app, you are contributing to our understanding of both land cover and land use. You will also provide information that will create better satellite maps. <a href="https://observer.globe.gov/about/land-cover" target="_blank" rel="noopener noreferrer" className="text-white/80 underline font-medium hover:text-white">Read more about land cover science.</a>
         </p>
-        <button type="button" className="flex items-center justify-between w-full py-3 text-sky-200 font-semibold border-t border-white/20 mt-2">
+        <button type="button" className="flex items-center justify-between w-full py-3 text-white/80 font-semibold border-t border-white/20 mt-2">
           Next
           <span className="text-lg">→</span>
         </button>
@@ -156,7 +156,7 @@ export default function ProtocolIntro() {
 
       <div className="bg-white/10 rounded-xl shadow-md border border-white/20 overflow-hidden">
         {/* Header band */}
-        <div className="bg-[#1d4ed8] text-white px-4 py-3">
+        <div className="bg-[#123259] text-white px-4 py-3">
           {content.subtitle && (
             <p className="text-xs font-medium text-white/90 uppercase tracking-wider mb-1">{content.subtitle}</p>
           )}

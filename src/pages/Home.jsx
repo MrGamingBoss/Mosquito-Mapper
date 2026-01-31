@@ -88,7 +88,7 @@ export default function Home() {
         </div>
 
       {/* Footer: Social, Websites, Sponsors */}
-      <footer className="mt-8 rounded-2xl overflow-hidden bg-[#1d4ed8] text-white shadow-lg border border-white/20">
+      <footer className="mt-8 rounded-2xl overflow-hidden bg-[#123259] text-white shadow-lg border border-white/20">
         {/* Social media row */}
         <div className="flex justify-center gap-3 p-4">
           {SOCIAL_LINKS.map(({ name, href, icon }) => (

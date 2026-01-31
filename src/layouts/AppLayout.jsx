@@ -21,9 +21,9 @@ export default function AppLayout({ children, currentPageName }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#2563eb] flex flex-col">
+    <div className="min-h-screen bg-[#123259] flex flex-col">
       {/* Header */}
-      <header className="bg-[#2563eb] text-white px-4 py-3 flex items-center justify-between shadow-sm">
+      <header className="bg-[#123259] text-white px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2 min-w-0">
           <img
             src="/images/globe-observer-logo.png"
@@ -55,9 +55,9 @@ export default function AppLayout({ children, currentPageName }) {
                 onClick={() => navigate(item.path)}
                 className={`relative flex flex-col items-center justify-center p-2 rounded-xl transition-all ${
                   item.isMain
-                    ? 'bg-[#2563eb] -mt-6 w-16 h-16 rounded-2xl shadow-lg text-white'
+                    ? 'bg-[#123259] -mt-6 w-16 h-16 rounded-2xl shadow-lg text-white'
                     : active
-                      ? 'text-[#2563eb]'
+                      ? 'text-[#123259]'
                       : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
