@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Check, Globe, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Globe, ExternalLink } from 'lucide-react';
 
 const SOCIAL_LINKS = [
   { name: 'Facebook', href: 'https://www.facebook.com/TheGLOBEProgram/', icon: 'facebook' },
@@ -42,21 +43,17 @@ const protocols = [
 ];
 
 export default function Home() {
-  const [selectedProtocol, setSelectedProtocol] = useState(null);
-
-  const handleProtocolSelect = (protocolId) => {
-    setSelectedProtocol(selectedProtocol === protocolId ? null : protocolId);
-  };
+  const navigate = useNavigate();
 
   return (
     <>
       {/* Logo Section */}
-      <div className="flex flex-col items-center mb-6">
-          <div className="flex flex-col items-center gap-2 mb-2">
+      <div className="flex flex-col items-center mb-8">
+          <div className="flex flex-col items-center gap-2 mb-3">
             <img
               src="/images/globe-observer-logo.png"
               alt="GLOBE Observer"
-              className="h-20 w-auto object-contain"
+              className="h-36 w-auto max-w-[280px] object-contain sm:h-40 sm:max-w-[320px]"
             />
           </div>
           <p className="text-slate-600 text-lg mt-2">Choose your protocol:</p>
@@ -67,12 +64,9 @@ export default function Home() {
           {protocols.map((protocol) => (
             <button
               key={protocol.id}
-              onClick={() => handleProtocolSelect(protocol.id)}
-              className={`relative overflow-hidden rounded-xl h-28 transition-all duration-300 transform ${
-                selectedProtocol === protocol.id 
-                  ? 'ring-4 ring-[#2563eb] scale-[1.02] shadow-lg' 
-                  : 'shadow-md hover:shadow-lg hover:scale-[1.01]'
-              }`}
+              type="button"
+              onClick={() => navigate(`/protocol/${protocol.id}`)}
+              className="relative overflow-hidden rounded-xl h-28 transition-all duration-300 transform shadow-md hover:shadow-lg hover:scale-[1.01]"
             >
               {/* Background Image */}
               <img 
@@ -80,13 +74,6 @@ export default function Home() {
                 alt={protocol.name}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              
-              {/* Selection indicator */}
-              {selectedProtocol === protocol.id && (
-                <div className="absolute top-2 right-2 w-6 h-6 bg-[#2563eb] rounded-full flex items-center justify-center z-10">
-                  <Check className="w-4 h-4 text-white" />
-                </div>
-              )}
               
               {/* Content overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
@@ -100,18 +87,6 @@ export default function Home() {
             </button>
           ))}
         </div>
-
-        {/* Selected Protocol Info */}
-        {selectedProtocol && (
-          <div className="mt-6 bg-white rounded-xl p-4 shadow-md animate-in slide-in-from-bottom-2 duration-300 border border-sky-100">
-            <p className="text-[#2563eb] font-semibold text-center">
-              {protocols.find(p => p.id === selectedProtocol)?.name} selected
-            </p>
-            <button className="w-full mt-3 bg-[#2563eb] text-white py-3 rounded-xl font-semibold hover:bg-[#1d4ed8] transition-colors">
-              Start Observation
-            </button>
-          </div>
-        )}
 
       {/* Footer: Social, Websites, Sponsors */}
       <footer className="mt-8 rounded-2xl overflow-hidden bg-[#2563eb] text-white shadow-lg border border-sky-200">
